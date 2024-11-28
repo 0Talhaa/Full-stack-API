@@ -1,0 +1,45 @@
+<div class="container py-5">
+    <div class="row justify-content-center">
+        <div class="col-md-8 col-lg-6">
+            <div class="card shadow-lg rounded-4 p-4">
+                <h3 class="text-center mb-4 text-primary">Delete Event</h3>
+                <form>
+                    <div class="mb-4">
+                        <label for="customerName" class="form-label fs-5 text-secondary">Customer Name</label>
+                        <input disabled type="text" class="form-control border-2 border-primary rounded-3 shadow-sm" 
+                               name="customerName" [(ngModel)]="event.customerName">
+                    </div>
+  
+                    <div class="mb-4">
+                        <label for="noOfGuests" class="form-label fs-5 text-secondary">No of Guests</label>
+                        <input disabled  type="number" class="form-control border-2 border-primary rounded-3 shadow-sm"
+                               name="noOfGuests" [(ngModel)]="event.noOfGuests">
+                    </div>
+  
+                    <div class="mb-4">
+                        <label for="date" class="form-label fs-5 text-secondary">Event Date</label>
+                        <input disabled  type="date" class="form-control border-2 border-primary rounded-3 shadow-sm"
+                               name="date" [(ngModel)]="event.date">
+                    </div>
+  
+                    <div class="mb-4">
+                        <label for="eventTypeId" class="form-label fs-5 text-secondary">Event Type</label>
+                        <select disabled  class="form-control border-2 border-primary rounded-3 shadow-sm" 
+                                name="eventTypeId" [(ngModel)]="event.eventTypeId">
+                            <option value="none" disabled selected>Choose event type</option>
+                            @for(ev of eventTypes; track $index) {
+                                <option value="{{ev.id}}">{{ev.type}} | Rs. {{ev.pricePerPerson}} per person</option>
+                            }
+                        </select>
+                    </div>
+  
+                    <div class="text-center">
+                        <button type="submit" class="btn btn-danger rounded-3 px-5 py-2 mt-3 shadow-sm"
+                                (click)="deleteEvent()">Delete</button>
+                    </div>
+                </form>
+            </div>
+        </div>
+    </div>
+  </div>
+  
